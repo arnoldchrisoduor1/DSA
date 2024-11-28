@@ -1,5 +1,4 @@
-package ArrayDiff;
-
+package ArrayDiff
 import java.util.Arrays;
 import java.util.List;
 
