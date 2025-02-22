@@ -9,4 +9,6 @@ def count_bits(n):
     return count
 
 result = count_bits(1234)
+
+#return bin(n).count("1")
 print("The number of 1s is: ", result)
