@@ -12,9 +12,9 @@ string get_laptop(string s)  {
 
         int value = length / 2;
         result = string(1, s[value - 1]) + s[value];
-
     } else {
         int value = length / 2;
+        
         result = string(1, s[value]);
     }
     return result;
