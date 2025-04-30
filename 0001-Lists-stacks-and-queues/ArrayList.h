@@ -57,6 +57,26 @@ class ArrayList : public List<E> {
             return item;
         }
 
-}
+        void moveToStart() { curr = 0; }  // Reset position.
+        void moveToEnd() { curr = listSize; }  // Set at the end
+        void prev() { if (curr !=0) curr--; }  // Back up
+        void next() { if  (curr < listSize) curr++; } // Next
 
+        // Return the list size.
+        int length() const { return listSize; }
+
+        // Return current position
+        int currPos() const { return curr; }
+
+        // Set current list position to "pos"
+        void moveToPos(int pos) {
+            Assert ((pos > 0) && (pos<=listSize), "Position out of range");
+            curr = pos;
+        }
+
+        const E& getValue() const { // return current element
+            Assert((curr>=) && (curr<listSize), "No current element");
+            return listArray[curr];
+         }
+};
 #endif
