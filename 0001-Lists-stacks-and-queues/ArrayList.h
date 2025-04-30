@@ -2,6 +2,7 @@
 #define ARRAYLIST_H
 
 #include <cassert>
+#define Assert(cond, msg) assert((cond) && (msg))
 #include "List.h"
 
 template <typename E>
@@ -27,17 +28,17 @@ class ArrayList : public List<E> {
         }
 
         // clearing the list.
-        void clear() overide {  // we are reinitializing the list.
+        void clear() override {  // we are reinitializing the list.
             delete[] listArray;     // then we remove the array.
             listSize = curr = 0;    // we then reset the size.
             listArray = new E[maxSize];     // we can then recreate the array.
         }
 
         // Insert "item" at current position.
-        void insert(const E& item) overide {
+        void insert(const E& item) override {
             Assert(listSize < maxSize, "List capacity exceeded");
             for (int i = listSize; i>curr; i--)     // shifing the element up
-                    listArray[i] = listArray[i-1]   // to make room.
+                    listArray[i] = listArray[i-1];   // to make room.
             listArray[curr] = item;
             listSize++;
         }
@@ -75,7 +76,7 @@ class ArrayList : public List<E> {
         }
 
         const E& getValue() const { // return current element
-            Assert((curr>=) && (curr<listSize), "No current element");
+            Assert((curr>=0) && (curr<listSize), "No current element");
             return listArray[curr];
          }
 };
